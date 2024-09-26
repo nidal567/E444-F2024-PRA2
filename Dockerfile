@@ -4,7 +4,7 @@ WORKDIR /hello
 COPY . /hello
 RUN pip3 install --no-cache-dir -r requirements.txt
 
-ENV FLASK_APP hello.py
+ENV FLASK_APP=hello.py
 EXPOSE 5000
 
 # run flask when container launches
