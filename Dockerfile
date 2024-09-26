@@ -1,14 +1,11 @@
-# Use an official Python runtime as a parent image
 FROM python:3.11-slim
 
-# Set the working directory in the container
 WORKDIR /hello
 COPY . /hello
-RUN python3 -m pip install -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
 
-# Make port 5000 available to the world outside this container
-EXPOSE 5001
-ENV FLASK_APP=hello.py
+ENV FLASK_APP hello.py
+EXPOSE 5000
 
-# Run the application
+# run flask when container launches
 CMD ["flask", "run", "--host=0.0.0.0"]
